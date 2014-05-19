@@ -59,6 +59,7 @@ alias -g T='|tail'
 [ -x =ack-grep ] && alias ack='ack-grep'
 alias t='mkdir -m 0700 -p /tmp/$USER.$$; cd /tmp/$USER.$$'
 alias vi=vim
+alias ppv='puppet parser validate'
 unalias rm mv cp 2>/dev/null # no -i madness
 
 # completion madness
