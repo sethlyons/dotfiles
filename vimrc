@@ -66,7 +66,10 @@ map ,4 :set sts=4 sw=4<CR>
 set titlestring=vim\ %<%F%(\ %)%m%h%w%=%l/%L-%P
 set titlelen=40
 if &term == "screen" || &term == "screen-256color"
-  seet t_fs= t_tf &term == "screen" || &term == "xterm" || &term == "screen-256color"
+  set t_fs=k
+  set t_tf=<t_tf>
+endif
+if &term == "screen" || &term == "xterm" || &term == "screen-256color"
   set title
   " colorscheme zenburn
 endif
