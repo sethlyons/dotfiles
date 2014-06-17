@@ -18,7 +18,7 @@ set ai
 set ruler
 set showmatch
 set autowrite
-set scrolloff=5  " guaranteed context lines
+set scrolloff=20  " guaranteed context lines
 
 " style
 set sts=2 sw=2 et
