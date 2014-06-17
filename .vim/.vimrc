@@ -63,11 +63,11 @@ map ,4 :set sts=4 sw=4<CR>
 :vmap Q gq
 
 " Set title string and push it to xterm/screen window title
-set titlestring=vim\ %<%F%(\ %)%m%h%w%=%l/%L-%P
+set titlestring=vim\ %<%f%(\ %)%m%h%w%=%l/%L-%P
 set titlelen=40
 if &term == "screen" || &term == "screen-256color"
-  set t_fs=k
-  set t_tf=<t_tf>
+  set t_ts=k
+  set t_fs=\
 endif
 if &term == "screen" || &term == "xterm" || &term == "screen-256color"
   set title
