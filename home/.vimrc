@@ -58,9 +58,10 @@ map ,4 :set sts=4 sw=4<CR>
 
 " mappings for buffer control
 " Move to the previous buffer with "gp"
-nnoremap gp :bp<CR>
-" Move to the next buffer with "gn"
-nnoremap gn :bn<CR>
+" nnoremap gp :bp<CR>
+" 20140617 -- was:  Move to the next buffer with "gn"
+" 20140617 new:  go to last buffer
+nnoremap gn 
 " List all possible buffers with "gl"
 nnoremap gl :ls<CR>
 " List all possible buffers with "gb" and accept a new buffer argument [1]
