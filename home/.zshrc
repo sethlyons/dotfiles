@@ -62,6 +62,11 @@ alias vi=vim
 alias ppv='puppet parser validate'
 unalias rm mv cp 2>/dev/null # no -i madness
 
+# use custom .screenrc if it exists
+if [ -e .screenrc.$HOST ]; then
+  alias screen="screen -c .screenrc.$HOST"
+fi
+
 # completion madness
 compctl -g '*(-/D)' cd
 compctl -g '*.ps' ghostview gv evince
