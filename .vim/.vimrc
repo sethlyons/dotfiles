@@ -56,6 +56,16 @@ map ,4 :set sts=4 sw=4<CR>
 :map ]] :let @z=@/<CR>j0[[%/{<CR>:let @/=@z<CR>
 :map [] :let @z=@/<CR>k$][%?}<CR>:let @/=@z<CR>
 
+" mappings for buffer control
+" Move to the previous buffer with "gp"
+nnoremap gp :bp<CR>
+" Move to the next buffer with "gn"
+nnoremap gn :bn<CR>
+" List all possible buffers with "gl"
+nnoremap gl :ls<CR>
+" List all possible buffers with "gb" and accept a new buffer argument [1]
+nnoremap gb :ls<CR>:b
+
 " reformat current paragraph
 :nmap Q gqap
 
