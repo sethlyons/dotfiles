@@ -97,3 +97,4 @@ let g:airline#extensions#ctrlp#show_adjacent_modes = 1
 
 " ctrlp settings
 let g:ctrlp_cmd = 'CtrlP /home/slyons/projects'
+let g:ctrlp_regexp = 1
