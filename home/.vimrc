@@ -85,3 +85,11 @@ if &term == "screen" || &term == "xterm" || &term == "screen-256color"
   set title
   " colorscheme zenburn
 endif
+
+" minibufexplorer settings
+let g:miniBufExplorerAutoStart = 0
+
+" airline settings
+let g:airline#extensions#ctrlp#show_adjacent_modes = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
