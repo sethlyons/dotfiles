@@ -86,15 +86,23 @@ if &term == "screen" || &term == "xterm" || &term == "screen-256color"
   " colorscheme zenburn
 endif
 
-" minibufexplorer settings
-" let g:miniBufExplorerAutoStart = 1
-
-" airline settings
-set laststatus=2
-let g:airline#extensions#ctrlp#show_adjacent_modes = 1
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#buffer_nr_show = 1
-
 " ctrlp settings
 let g:ctrlp_cmd = 'CtrlP /home/slyons/projects'
 let g:ctrlp_regexp = 1
+let g:ctrlp_match_window = "bottom,order:ttb,min:1,max:10,results:10"
+set wildignore+=*/.git/*
+
+" minibuf settings
+let g:miniBufExplCycleArround = 1
+map <C-l> :MBEbn<CR>
+map <C-h> :MBEbp<CR>
+map <Esc>1 :b1<CR>      # alt+N to switch to that buffer
+map <Esc>2 :b2<CR>
+map <Esc>3 :b3<CR>
+map <Esc>4 :b4<CR>
+map <Esc>5 :b5<CR>
+map <Esc>6 :b6<CR>
+map <Esc>7 :b7<CR>
+map <Esc>8 :b8<CR>
+map <Esc>9 :b9<CR>
+map <Esc>0 :b10<CR>
