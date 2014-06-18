@@ -6,6 +6,7 @@ endif
 set background=dark
 set t_Co=256
 
+set hidden
 set nocompatible
 set incsearch
 set smartcase
