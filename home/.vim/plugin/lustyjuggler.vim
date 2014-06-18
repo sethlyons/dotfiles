@@ -244,8 +244,8 @@ endif
 let g:loaded_lustyjuggler = "yep"
 
 " Commands.
-command LustyJuggler :call lustyjuggler#LustyJugglerStart()
-command LustyJugglePrevious :call lustyjuggler#LustyJugglePreviousRun()
+command LustyJuggler :call LustyJugglerStart()
+command LustyJugglePrevious :call LustyJugglePreviousRun()
 
 " Deprecated command names.
 command JugglePrevious :call
