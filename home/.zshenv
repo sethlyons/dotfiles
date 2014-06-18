@@ -35,3 +35,21 @@ export VISUAL="$EDITOR"
 if [ "$TERM" = "screen-bce" ]; then
 export TERM="screen"
 fi
+
+# use screen-256color on modern OSes
+case $(uname -s) in
+Linux)
+  case $(cat /etc/redhat-release) in
+  *release\ 6*|*release\ 7*)
+    export TERM=screen-256color
+    ;;
+  esac
+  ;;
+FreeBSD)
+  case $(uname -r) in
+  10*)
+    export TERM=screen-256color
+    ;;
+  esac
+  ;;
+esac

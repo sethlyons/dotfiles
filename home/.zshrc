@@ -60,6 +60,7 @@ alias -g T='|tail'
 alias t='mkdir -m 0700 -p /tmp/$USER.$$; cd /tmp/$USER.$$'
 alias vi=vim
 alias ppv='puppet parser validate'
+alias ssh='env TERM=screen \ssh'
 unalias rm mv cp 2>/dev/null # no -i madness
 
 # completion madness
