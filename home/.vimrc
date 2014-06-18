@@ -87,9 +87,9 @@ if &term == "screen" || &term == "xterm" || &term == "screen-256color"
 endif
 
 " minibufexplorer settings
-let g:miniBufExplorerAutoStart = 0
+let g:miniBufExplorerAutoStart = 1
 
 " airline settings
 let g:airline#extensions#ctrlp#show_adjacent_modes = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#buffer_nr_show = 1
