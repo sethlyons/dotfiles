@@ -20,6 +20,7 @@ set ruler
 set showmatch
 set autowrite
 set scrolloff=20  " guaranteed context lines
+let mapleader = ","
 
 " style
 set sts=2 sw=2 et
@@ -43,13 +44,13 @@ autocmd FileType make set noet sts=8 sw=8
 autocmd FileType json set sts=3 sw=3
 
 " mappings
-map ,t :set noet sts=8 sw=8 nolist<CR>
-map ,r :set syntax=ruby<CR>
-map ,m :noh<CR>
-map ,n :noh<CR>
-map ,p :set invpaste paste?<CR>
-map ,2 :set sts=2 sw=2<CR>
-map ,4 :set sts=4 sw=4<CR>
+map <Leader>t :set noet sts=8 sw=8 nolist<CR>
+map <Leader>r :set syntax=ruby<CR>
+map <Leader>m :noh<CR>
+map <Leader>n :noh<CR>
+map <Leader>p :set invpaste paste?<CR>
+map <Leader>2 :set sts=2 sw=2<CR>
+map <Leader>4 :set sts=4 sw=4<CR>
 
 " more intelligent moving around between functions
 :map [[ :let @z=@/<CR>?{<CR>w99[{:let @/=@z<CR>
@@ -94,6 +95,8 @@ set wildignore+=*/.git/*
 
 " minibuf settings
 let g:miniBufExplCycleArround = 1
+map <Leader>d :MBEbd<CR>
+map <Leader>b :MBEToggle<CR>
 map <C-l> :MBEbn<CR>
 map <C-h> :MBEbp<CR>
 map <Esc>1 :b1<CR>      # alt+N to switch to that buffer

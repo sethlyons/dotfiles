@@ -39,7 +39,7 @@ fi
 # use screen-256color on modern OSes
 case $(uname -s) in
 Linux)
-  case $(cat /etc/redhat-release) in
+  case $(cat /etc/redhat-release 2>/dev/null) in
   *release\ 6*|*release\ 7*)
     export TERM=screen-256color
     ;;
