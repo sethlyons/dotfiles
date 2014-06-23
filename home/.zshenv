@@ -34,7 +34,7 @@ export VISUAL="$EDITOR"
 
 if [ "$TERM" = "screen-bce" ]; then
 export TERM="screen"
-fi
+#fi
 
 # use screen-256color on modern OSes
 case $(uname -s) in
@@ -53,3 +53,4 @@ FreeBSD)
   esac
   ;;
 esac
+fi
