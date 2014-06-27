@@ -19,7 +19,7 @@ set ai
 set ruler
 set showmatch
 set autowrite
-set scrolloff=20  " guaranteed context lines
+set scrolloff=5  " guaranteed context lines
 let mapleader = ","
 
 " style
@@ -51,6 +51,14 @@ map <Leader>n :noh<CR>
 map <Leader>p :set invpaste paste?<CR>
 map <Leader>2 :set sts=2 sw=2<CR>
 map <Leader>4 :set sts=4 sw=4<CR>
+
+" mappings for text search
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
 
 " more intelligent moving around between functions
 :map [[ :let @z=@/<CR>?{<CR>w99[{:let @/=@z<CR>
@@ -88,7 +96,7 @@ if &term == "screen" || &term == "xterm" || &term == "screen-256color"
 endif
 
 " ctrlp settings
-let g:ctrlp_cmd = 'CtrlP /home/slyons/projects'
+let g:ctrlp_cmd = 'CtrlP $HOME/projects'
 let g:ctrlp_regexp = 1
 let g:ctrlp_match_window = "bottom,order:ttb,min:1,max:10,results:10"
 set wildignore+=*/.git/*
