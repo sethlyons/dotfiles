@@ -71,7 +71,7 @@ nnoremap g# g#zz
 " nnoremap gp :bp<CR>
 " 20140617 -- was:  Move to the next buffer with "gn"
 " 20140617 new:  go to last buffer
-nnoremap gn 
+nnoremap gn :bn<CR>
 " List all possible buffers with "gl"
 nnoremap gl :ls<CR>
 " List all possible buffers with "gb" and accept a new buffer argument [1]
