@@ -60,7 +60,6 @@ alias -g T='|tail'
 alias t='mkdir -m 0700 -p /tmp/$USER.$$; cd /tmp/$USER.$$'
 alias vi=vim
 alias ppv='puppet parser validate'
-alias ssh='env TERM=screen \ssh'
 unalias rm mv cp 2>/dev/null # no -i madness
 
 # completion madness
@@ -74,21 +73,29 @@ autoload -U compinit
 compinit
 
 # custom functions
+function ssh() {
+  if [ "${TERM}" = 'screen-256color' ]; then
+    env TERM=screen =ssh "$@"
+  else
+    =ssh "$@"
+  fi
+}
+
 function psg() {
   ps auxww | egrep -- $* | fgrep -v egrep
 }
 
 function scp() {
   found=false
-for arg; do
-if [ "${arg%%:*}" != "${arg}" ]; then
-found=true
-break
-fi
-done
+  for arg; do
+   if [ "${arg%%:*}" != "${arg}" ]; then
+     found=true
+     break
+   fi
+  done
 
-if ! $found; then
-echo "scp: no remote location specified" >&2
+  if ! $found; then
+    echo "scp: no remote location specified" >&2
     return 1
   fi
 
@@ -97,17 +104,17 @@ echo "scp: no remote location specified" >&2
 
 function svn-tkdiff() {
   svn st -q "$@" | while read mod file; do
-if [ ! -f "$file" ]; then
-continue
-fi
-if [ "$mod" = "A" ]; then
-echo "$file (NEW)"
+    if [ ! -f "$file" ]; then
+      continue
+    fi
+    if [ "$mod" = "A" ]; then
+      echo "$file (NEW)"
       tkdiff /dev/null $file
     else
-echo "$file (MOD)"
+      echo "$file (MOD)"
       tkdiff $file
     fi
-done
+  done
 }
 
 function title() {
