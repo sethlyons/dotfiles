@@ -281,7 +281,7 @@ for file in $HOME/.zsh/*.zsh; do
   done
 fi
 
-# ssh agent magic
+# ssh agent fix
 function fixagent() {
   ssh-add -l >/dev/null 2>&1 && return
 
