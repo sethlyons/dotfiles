@@ -280,3 +280,17 @@ for file in $HOME/.zsh/*.zsh; do
     . $file
   done
 fi
+
+# ssh agent magic
+function fixagent() {
+  ssh-add -l >/dev/null 2>&1 && return
+
+  for f in $(find /tmp/ssh-* -maxdepth 1 -user $USER -type s -name 'agent*'); do
+    export SSH_AUTH_SOCK=$f
+    ssh-add -l >/dev/null 2>&1 && return
+    rm -f $f    # dead
+  done
+
+  echo "Can't find a forwarded ssh-agent." >&2
+  unset SSH_AUTH_SOCK
+}
