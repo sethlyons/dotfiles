@@ -34,6 +34,9 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
+" haproxy syntax
+au BufRead,BufNewFile haproxy* set ft=haproxy
+
 " file type settings
 filetype plugin on
 filetype on
