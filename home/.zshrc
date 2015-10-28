@@ -281,8 +281,8 @@ curl ${curl_opts} http://pastebin.com/api/api_post.php
 
 # prompt
 [ "$USERNAME" != "slyons" -a "$USERNAME" != "root" ] && u="${USERNAME}@"
-export PS1="%? ${u}%m(%35<...<%~) %# "
-unset RPROMPT RPS1
+#export PS1="%? ${u}%m(%35<...<%~) %# "
+#unset RPROMPT RPS1
 
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
