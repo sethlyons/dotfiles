@@ -5,19 +5,19 @@ autoload -U colors
 colors
 
 prompt_git_status() {
-  if ! $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
+  if ! command git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
     return 0
   fi
 
   local dirty=0
-  local ref=$(git symbolic-ref HEAD 2>/dev/null || git show-ref --head -s --abbrev | head -n 1 2>/dev/null)
+  local ref=$(command git symbolic-ref HEAD 2>/dev/null || git show-ref --head -s --abbrev | head -n 1 2>/dev/null)
   local summary
   typeset -A summary
 
-  gsp=$(git status --porcelain)
+  gsp=$(command git status --porcelain)
 
   if [[ -n $gsp ]]; then
-    for line in "${(@f)$(command git status --porcelain)}"; do
+    for line in "${(@f)${gsp}}"; do
       local gitstat=$line[(w)1]
       summary[$gitstat]=$((summary[$gitstat] + 1))
       dirty=1
@@ -31,12 +31,13 @@ prompt_git_status() {
     color="green"
   fi
 
-  echo -n " git: %{$fg_bold[$color]%}${ref/refs\/heads\//}%{%f%b%} "
+  echo -n -e "{ git: %{$fg_bold[$color]%}${ref/refs\/heads\//}%{%f%b%} "
 
 
   for k in "${(@k)summary}"; do
     echo -n "[$k:$summary[$k]] "
   done
+  echo -n "} "
 
   return 1
 }
