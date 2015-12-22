@@ -5,12 +5,11 @@ autoload -U colors
 colors
 
 prompt_git_status() {
-  if ! command git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  if [[ -z $_git_ref ]]; then
     return 0
   fi
 
   local dirty=0
-  local ref=$(command git symbolic-ref HEAD 2>/dev/null || git show-ref --head -s --abbrev | head -n 1 2>/dev/null)
   local summary
   typeset -A summary
 
@@ -24,20 +23,57 @@ prompt_git_status() {
     done
   fi
 
+  #integer ahead="0"
+  #local branch="$(command git branch -v | awk '/^\* / { print $4,$5; }')"
+  #if [[ -n "$branch" ]]; then
+  #  if [[ $branch[(w)1] = "[ahead" ]]; then
+  #    echo "q" >&2
+  #    ahead=$branch[(w)2]
+  #    echo "w q=\"$q\"" >&2
+  #  fi
+  #fi
+
+  #echo "ahead=\"$ahead\"" >&2
+
   local color
   if [[ $dirty -eq 1 ]]; then
     color="yellow"
+  elif [[ $ahead -ne 0 ]]; then
+    color="green"
   else
     color="green"
   fi
 
-  echo -n -e "{ git: %{$fg_bold[$color]%}${ref/refs\/heads\//}%{%f%b%} "
+  echo -n -e "{ git: %{$fg_bold[$color]%}${_git_ref}%{%f%b%} "
 
 
   for k in "${(@k)summary}"; do
     echo -n "[$k:$summary[$k]] "
   done
+
+  #if [[ $ahead -ne 0 ]]; then
+  #  echo -n "[ahead:$ahead] "
+  #fi
+
   echo -n "} "
+
+  return 1
+}
+
+prompt_rack_env() {
+  if [[ -z $_rack_dir ]]; then
+    return 0
+  fi
+
+  local color=0
+
+  case $RACK_ENV in
+    prod*)
+      echo -n -e "{ RACK_ENV: %{$fg_bold[red]%}${RACK_ENV}%{%f%b%} } "
+      ;;
+    *)
+      echo -n -e "{ RACK_ENV: ${RACK_ENV} } "
+  esac
 
   return 1
 }
@@ -87,15 +123,16 @@ build_prompt() {
   # first optional line
   prompt_git_status
   git_rc=$?
+  prompt_rack_env
+  rack_rc=$?
 
-  if [[ $git_rc -eq 1 ]]; then
+  if [[ $git_rc -eq 1 || $rack_rc -eq 1 ]]; then
     echo ""
   fi
 
   # actual prompt
   prompt_rc
   prompt_context
-  #prompt_git_branch
   prompt_end
 }
 

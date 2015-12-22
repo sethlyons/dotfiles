@@ -21,10 +21,10 @@ export RSYNC_RSH=ssh
 
 # pager
 if [ _`whence less` != '_' ]; then
-  export PAGER=less
+export PAGER=less
   export LESS="-nirX"
 else
-  export PAGER=more
+export PAGER=more
 fi
 READNULLCMD=$PAGER
 
@@ -33,8 +33,8 @@ export EDITOR="vim"
 export VISUAL="$EDITOR"
 
 if [ "$TERM" = "screen-bce" ]; then
-  export TERM="screen"
-fi
+export TERM="screen"
+#fi
 
 # use screen-256color on modern OSes
 case $(uname -s) in
@@ -53,3 +53,4 @@ FreeBSD)
   esac
   ;;
 esac
+fi
