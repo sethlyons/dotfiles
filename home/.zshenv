@@ -2,7 +2,7 @@
 
 PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 NEWPATH=$HOME/bin
-for p in /usr/ucb /usr/ccs/bin /opt/SUNWspro/bin /opt/gnu/bin /var/lib/gems/1.8/bin /usr/lib/gems/1.8/bin $HOME/android/android-sdk-linux/tools $HOME/android/android-sdk-linux/platform-tools $HOME/.rvm/bin
+for p in $HOME/.rvm/bin
 do
   [ -d "$p" ] && NEWPATH=$NEWPATH:$p
 done

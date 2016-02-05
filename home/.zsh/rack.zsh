@@ -1,20 +1,24 @@
 update-rack-vars() {
-  if [[ -e "config.ru" ]]; then
-    _rack_dir="."
-  elif [[ -e "../config.ru" ]]; then
-    _rack_dir=".."
-  elif [[ -e "../../config.ru" ]]; then
-    _rack_dir="../.."
-  elif [[ -e "../../../config.ru" ]]; then
-    _rack_dir="../../.."
-  else
-    unset _rack_dir
-    unset RACK_ENV
-  fi
+  local _dir
+
+  unset _rack_dir
+  for d in . .. ../.. ../../..; do
+    _dir=${d:A} # zsh magic: convert relative to absolute path
+    if [[ $_dir == $HOME ]]; then
+      break
+    fi
+
+    if [[ -e "${_dir}/config.ru" ]]; then
+      _rack_dir=$d
+      break
+    fi
+  done
 
   if [[ -n "$_rack_dir" ]]; then
     : ${RACK_ENV:=development}
     export RACK_ENV
+  else
+    unset RACK_ENV
   fi
 }
 

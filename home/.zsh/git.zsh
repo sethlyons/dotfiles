@@ -1,3 +1,6 @@
+# tell git to never look outside of our homedir for a .git
+export GIT_CEILING_DIRECTORIES=$HOME/..
+
 # set env vars for other git-related functions to use. this way we run
 # the git commands only once.
 update-git-vars() {
