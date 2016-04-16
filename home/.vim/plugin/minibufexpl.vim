@@ -296,7 +296,7 @@ if !exists('g:miniBufExplSortBy')
 endif
 
 " }}}
-" Should buffer be cycled arround if hits the begining or the end while {{{
+" Should buffer be cycled arround if hits the beginning or the end while {{{
 " using MBE's buffer movement commands.
 "
 if !exists('g:miniBufExplCycleArround')
@@ -1513,7 +1513,7 @@ function! <SID>BuildBufferList(curBufNum)
         let l:BufName = expand( "#" . l:i . ":p:t")
 
         " Establish the tab's content, including the differentiating root
-        " dir if neccessary
+        " dir if necessary
         let l:tab = '['
         if g:miniBufExplShowBufNumbers == 1
             let l:tab .= l:i.':'
