@@ -58,7 +58,6 @@ alias -g T='|tail'
 [ -x =ack-grep ] && alias ack='ack-grep'
 alias t='mkdir -m 0700 -p /tmp/$USER.$$; cd /tmp/$USER.$$'
 alias vi=vim
-alias ppv='puppet parser validate'
 alias ssh='env TERM=screen \ssh'
 unalias rm mv cp 2>/dev/null # no -i madness
 
@@ -89,6 +88,15 @@ compinit
 autoload -U add-zsh-hook
 
 # custom functions
+function ppv() {
+  cur=$(rvm current)
+  if [[ $cur != "system" ]]; then
+    rvm use system >/dev/null
+  fi
+
+  puppet parser validate "$@"
+}
+
 function psg() {
   ps auxww | egrep -- $* | fgrep -v egrep
 }
