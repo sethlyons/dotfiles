@@ -91,10 +91,11 @@ autoload -U add-zsh-hook
 function ppv() {
   cur=$(rvm current)
   if [[ $cur != "system" ]]; then
-    rvm use system >/dev/null
+    rvm system >/dev/null
   fi
 
   puppet parser validate "$@"
+  rvm use $cur >/dev/null
 }
 
 function psg() {
