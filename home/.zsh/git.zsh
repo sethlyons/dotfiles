@@ -39,6 +39,35 @@ p() {
   $cmd
 }
 
+# git status alias
+s() {
+  if [ -z "$_git_ref" ]; then
+    echo "s: not in a git repo" >&2
+    return 1
+  fi
+
+  git status
+}
+
+# git update alias
+u() {
+  local cmd
+
+  if [ -z "$_git_ref" ]; then
+    echo "u: not in a git repo" >&2
+    return 1
+  fi
+
+  cmd="git fetch -p origin"
+  echo "=> $cmd" >&2
+  $cmd
+
+  # TODO: figure out if we need to stash/rebase/stash apply
+  cmd="git rebase origin/$_git_ref"
+  echo "=> $cmd" >&2
+  $cmd
+}
+
 # some custom git sub-commands; this way we don't have to carry around
 # ~/bin/git-* scripts.
 git() {
