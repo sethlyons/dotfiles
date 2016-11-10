@@ -311,3 +311,5 @@ function fixagent() {
   echo "Can't find a forwarded ssh-agent." >&2
   unset SSH_AUTH_SOCK
 }
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
