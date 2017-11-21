@@ -65,7 +65,7 @@ case $(uname -s) in
 Linux)
   LS_COLORS='di=36:ln=35:so=32:pi=33:ex=30;41:bd=34;46:cd=34;43:su=41:sg=46:st=42:ow=43'
   export LS_COLORS
-  alias ls='ls --color'
+  alias ls='ls -a --color'
   ;;
 FreeBSD)
   LSCOLORS=gxfxcxdxabegedabagacad
