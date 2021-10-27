@@ -205,23 +205,22 @@ function preexec() {
   # add '--' in case $1 is only one word to work around a bug in ${(z)foo}
   # in zsh 4.3.9.
   tmpcmd="$1 --"
-  args=${(z)tmpcmd}
+  args=(${(z)tmpcmd})
 
   # remove the '--' we added as a bug workaround..
   # per zsh manpages, removing an element means assigning ()
   # TODO: support fg %-
   args[${#args}]=()
-  if [ "${args[1]}" = "fg" ] ; then
+  if [[ "${args[1]}" == "fg" ]] ; then
     local jobnum="${args[2]}"
-    if [ -z "$jobnum" ] ; then
+    if [[ -z "$jobnum" ]] ; then
       # If no jobnum specified, find the current job.
       for i in ${(k)jobtexts}; do
-        [ -z "${jobstates[$i]%%*:+:*}" ] && jobnum=$i
+        [[ -z "${jobstates[$i]%%*:+:*}" ]] && jobnum=$i
       done
     fi
     cmd="${jobtexts[${jobnum#%}]}"
   fi
-
   title "$cmd"
 }
 
