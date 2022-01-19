@@ -1,12 +1,6 @@
-[submodule "home/.vim/pack/plugins/start/ctrlp"]
-	path = home/.vim/pack/plugins/start/ctrlp
-	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule "home/.vim/pack/syntax/start/js"]
 	path = home/.vim/pack/syntax/start/js
 	url = https://github.com/yuezk/vim-js.git
-[submodule "home/.vim/pack/plugins/start/minibufexpl"]
-	path = home/.vim/pack/plugins/start/minibufexpl
-	url = https://github.com/fholgado/minibufexpl.vim
 [submodule "home/.vim/pack/syntax/start/ps1"]
 	path = home/.vim/pack/syntax/start/ps1
 	url = https://github.com/PProvost/vim-ps1.git
@@ -22,3 +16,6 @@
 [submodule "home/.vim/pack/syntax/start/typescript-vim"]
 	path = home/.vim/pack/syntax/start/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
+[submodule "home/.vim/pack/plugins/start/vim-airline"]
+	path = home/.vim/pack/plugins/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
