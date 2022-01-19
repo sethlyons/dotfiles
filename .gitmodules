@@ -1,0 +1,24 @@
+[submodule "home/.vim/pack/plugins/start/ctrlp"]
+	path = home/.vim/pack/plugins/start/ctrlp
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "home/.vim/pack/syntax/start/js"]
+	path = home/.vim/pack/syntax/start/js
+	url = https://github.com/yuezk/vim-js.git
+[submodule "home/.vim/pack/plugins/start/minibufexpl"]
+	path = home/.vim/pack/plugins/start/minibufexpl
+	url = https://github.com/fholgado/minibufexpl.vim
+[submodule "home/.vim/pack/syntax/start/ps1"]
+	path = home/.vim/pack/syntax/start/ps1
+	url = https://github.com/PProvost/vim-ps1.git
+[submodule "home/.vim/pack/syntax/start/puppet"]
+	path = home/.vim/pack/syntax/start/puppet
+	url = https://github.com/rodjek/vim-puppet.git
+[submodule "home/.vim/pack/syntax/start/vim-terraform"]
+	path = home/.vim/pack/syntax/start/vim-terraform
+	url = https://github.com/hashivim/vim-terraform.git
+[submodule "home/.vim/pack/syntax/start/jsx-pretty"]
+	path = home/.vim/pack/syntax/start/jsx-pretty
+	url = https://github.com/MaxMEllon/vim-jsx-pretty.git
+[submodule "home/.vim/pack/syntax/start/typescript-vim"]
+	path = home/.vim/pack/syntax/start/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
