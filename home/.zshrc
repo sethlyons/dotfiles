@@ -318,6 +318,14 @@ function deltemp() {
   find /tmp -type d -user slyons -mtime +14 -delete 2>/dev/null
 }
 
+function cpm() {
+  sudo -u radarr rsync -avv "$@"
+}
+
+function cpt() {
+  sudo -u sonarr rsync -avv "$@"
+}
+
 # prompt
 if [[ $_me == "false" && "$USERNAME" != "root" ]]; then
   u="${USERNAME}@"
